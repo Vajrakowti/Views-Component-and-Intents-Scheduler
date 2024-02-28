@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ScrollView"
+        tools:targetApi="31" >
+
+        <activity
+            android:name=".JobSchedulerEx"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".CA1EX"
+            android:exported="true" />
+        <activity
+            android:name=".ThirdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AvgRatingEx"
+            android:exported="true" />
+        <activity
+            android:name=".NotificationManagerExx"
+            android:exported="true" />
+
+        <activity
+            android:name=".NotificationViewEx"
+            android:exported="true" />
+        <activity
+            android:name=".AlaramManagerEx"
+            android:exported="true" />
+        <activity
+            android:name=".FooterEx"
+            android:exported="true" />
+
+        <activity
+            android:name=".ToolBarEx"
+            android:exported="true"
+            android:theme="@style/Theme.ScrollView.NoActionBar" />
+        <activity
+            android:name=".ProgressBarEX"
+            android:exported="true" />
+        <activity
+            android:name=".CustomToastEx"
+            android:exported="true" />
+        <activity
+            android:name=".FlashScreenEX2"
+            android:exported="false" />
+        <activity
+            android:name=".FlashScreenEx"
+            android:exported="true" />
+        <activity
+            android:name=".RatingBarEx"
+            android:exported="true" />
+        <activity
+            android:name=".ScrollViewEx"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <receiver android:name=".AlaramManagerBroadcast" />
+
+        <service
+            android:name=".MyJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+    </application>
+
+</manifest>
