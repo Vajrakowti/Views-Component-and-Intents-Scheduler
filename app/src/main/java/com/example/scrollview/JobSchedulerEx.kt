@@ -11,18 +11,39 @@ import android.widget.Toast
 class JobSchedulerEx : AppCompatActivity() {
 
 
-    var jobScheduler: JobScheduler? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
+//    var jobScheduler: JobScheduler? = null
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_job_scheduler_ex)
+//
+//        val stopJob = findViewById<Button>(R.id.startJob)
+//        val startJob = findViewById<Button>(R.id.stopJob)
+//
+//        startJob.setOnClickListener {
+//            jobScheduler = getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
+//            val componentName = ComponentName(this, MyJobService::class.java)
+//            val builder = JobInfo.Builder(123, componentName)
+//            builder.setMinimumLatency(8000)
+//            builder.setOverrideDeadline(10000)
+//            builder.setPersisted(true)
+//            builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+//            builder.setRequiresCharging(false)
+//            jobScheduler!!.schedule(builder.build())
+//        }
+
+    var jobScheduler:JobScheduler?=null
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_job_scheduler_ex)
 
-        val stopJob = findViewById<Button>(R.id.startJob)
-        val startJob = findViewById<Button>(R.id.stopJob)
+        val stopJob = findViewById<Button>(R.id.stopJob)
+        val startJob = findViewById<Button>(R.id.startJob)
 
         startJob.setOnClickListener {
-            jobScheduler = getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
+            jobScheduler = getSystemService(JOB_SCHEDULER_SERVICE)as JobScheduler
             val componentName = ComponentName(this, MyJobService::class.java)
-            val builder = JobInfo.Builder(123, componentName)
+            val builder = JobInfo.Builder(123,componentName)
             builder.setMinimumLatency(8000)
             builder.setOverrideDeadline(10000)
             builder.setPersisted(true)
@@ -32,12 +53,21 @@ class JobSchedulerEx : AppCompatActivity() {
         }
 
         stopJob.setOnClickListener {
-            if(jobScheduler != null){
+            if (jobScheduler != null)
+            {
                 jobScheduler!!.cancel(123)
-                jobScheduler = null
-                Toast.makeText(this,"Job Cancelled", Toast.LENGTH_SHORT).show()
-
+                jobScheduler=null
+                Toast.makeText(this, "Job Cancelled", Toast.LENGTH_SHORT).show()
             }
         }
+
+//        stopJob.setOnClickListener {
+//            if(jobScheduler != null){
+//                jobScheduler!!.cancel(123)
+//                jobScheduler = null
+//                Toast.makeText(this,"Job Cancelled", Toast.LENGTH_SHORT).show()
+//
+//            }
+//        }
     }
 }
