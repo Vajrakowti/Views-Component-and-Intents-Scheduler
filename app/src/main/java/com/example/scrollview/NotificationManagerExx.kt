@@ -78,8 +78,7 @@ class NotificationManagerExx : AppCompatActivity() {
 
         btnNotify.setOnClickListener {
             val intent = Intent(this,NotificationViewEx::class.java)
-            pendingIntent = PendingIntent.getActivity(this,0,intent,
-                PendingIntent.FLAG_IMMUTABLE)
+            pendingIntent = PendingIntent.getActivity(this,0,intent, PendingIntent.FLAG_IMMUTABLE)
 
             soundUri = Uri.parse(
                 ContentResolver.SCHEME_ANDROID_RESOURCE + "://"+

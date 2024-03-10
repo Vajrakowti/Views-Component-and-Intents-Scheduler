@@ -22,6 +22,13 @@ class AlaramManagerEx : AppCompatActivity() {
         var RStart = findViewById<Button>(R.id.RStart)
         var cancel = findViewById<Button>(R.id.cancel_button)
         var Etext = findViewById<EditText>(R.id.time)
+
+//        A pending intent in Android development is like a voucher for a future action.
+//        It lets another app trigger something specific within your app, even if your app isn't running at the moment.
+
+//        You can create an alarm using the AlarmManager and associate a pending intent with it.
+//        When the alarm goes off, the pending intent triggers the desired action in your app.
+
         var alarmManager : AlarmManager
         val intent = Intent(this,AlaramManagerBroadcast::class.java)
         val pendingIntent = PendingIntent.getBroadcast(this,0, intent, FLAG_IMMUTABLE)
@@ -30,12 +37,10 @@ class AlaramManagerEx : AppCompatActivity() {
         start.setOnClickListener{
             var i = Etext.text.toString().toInt()
             alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            alarmManager.set(AlarmManager.RTC_WAKEUP,
-                              System.currentTimeMillis()+(i*1000),pendingIntent)
+            alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+(i*1000),pendingIntent)
             Toast.makeText(this,"Alarm set in $i seconds",Toast.LENGTH_LONG).show()
 
         }
-
 
         RStart.setOnClickListener{
             alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager

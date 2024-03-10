@@ -8,8 +8,6 @@ import android.util.Log
 import android.widget.Toast
 
 class AlaramManagerBroadcast  : BroadcastReceiver(){
-
-
     override fun onReceive(context: Context,intent: Intent) {
         var mp = MediaPlayer.create(context,R.raw.alarm)
         Log.d("Hello","repeating alarm")

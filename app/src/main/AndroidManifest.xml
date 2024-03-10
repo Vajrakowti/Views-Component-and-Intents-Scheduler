@@ -19,13 +19,8 @@
 
         <activity
             android:name=".JobSchedulerEx"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <activity
             android:name=".CA1EX"
@@ -41,7 +36,13 @@
             android:exported="true" />
         <activity
             android:name=".NotificationManagerExx"
-            android:exported="true" />
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
 
         <activity
             android:name=".NotificationViewEx"
